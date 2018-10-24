@@ -109,7 +109,7 @@ public class PractitionerController {
         if ( familyName != null && givenName != null){
             List<HumanName> humanNameList = humanNameRepo.findHumanNameByFamilyAndGiven(familyName, givenName);
             List<Practitioner> practitionerList = practitionerRepo.findByNameIn(humanNameList);
-            return new ResponseEntity<List>(practitionerList, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<List>(practitionerList, HttpStatus.OK);
         }else{
             return new ResponseEntity<OperationOutcome>(OperationOutcome.OperationNotSupported(), HttpStatus.OK);
         }
