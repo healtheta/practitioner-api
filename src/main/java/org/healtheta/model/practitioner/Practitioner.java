@@ -58,6 +58,11 @@ public class Practitioner implements Serializable {
     @Column(name = "_communication")
     private List<CodeableConcept> communication;
 
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade =  CascadeType.ALL)
+    @JoinColumn(name = "_reference")
+    private Reference reference;
+
     public Long getId() {
         return id;
     }
@@ -102,6 +107,10 @@ public class Practitioner implements Serializable {
         return communication;
     }
 
+    public Reference getReference() {
+        return reference;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -144,5 +153,9 @@ public class Practitioner implements Serializable {
 
     public void setCommunication(List<CodeableConcept> communication) {
         this.communication = communication;
+    }
+
+    public void setReference(Reference reference) {
+        this.reference = reference;
     }
 }
