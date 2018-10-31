@@ -17,7 +17,6 @@ import java.lang.Long;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/")
 public class PractitionerController {
     @Autowired
     PractitionerRepo practitionerRepo;
